@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Hammersmith+One&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Hammersmith One;
+}
+
+.display-song-wrapper {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.display-song-name {
+    margin: 0.75rem;
+}
+
+.display-song-artist {
+
+}
+
+.song-image {
+    margin: 3rem;
+    border-radius: 50%;
+    object-fit: cover;
+    width: 30rem;
+    height: 30rem;
+    animation: spin 10s linear 0s infinite normal;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.heart {
+    border: 1px solid black;
+    width:3rem;
+    height:3rem;
+    margin-top: 2rem;
+}
+
+.menu-items {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.menu-items img {
+    width: 3rem;
+    height: 3rem;
+    margin: 2rem;
+}
