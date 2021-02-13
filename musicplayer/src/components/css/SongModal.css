@@ -1,0 +1,66 @@
+.modal-wrapper {
+    height: 30rem;
+    width: 27rem;
+    background-color: white;
+    box-shadow: 0 0 40px rgb(104, 104, 104);
+    position: fixed;
+    flex-direction: column;
+    justify-content: center;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%,-70%);
+    z-index: 10;
+    display: none;
+    --modal-color:rgb(0, 0, 0);
+}
+
+.close-modal {
+    position: absolute;
+    right: 0.2rem;
+    top: 0;
+    font-size: 2rem;
+    cursor: pointer;
+    color: var(--modal-color);
+}
+
+.close-modal:hover {
+    opacity: 0.7;
+}
+
+.modal-wrapper label {
+    color: var(--modal-color);
+    font-size: 1.5em;
+    margin: 0 2rem;
+}
+
+.modal-wrapper input[type=text] {
+    margin-bottom: 1rem;
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+    border: 2px solid var(--modal-color);
+    font-size: 1.2rem;
+    border-radius: 0.3rem;
+    padding: 0.5rem;
+}
+.modal-wrapper input[type=checkbox] {
+    margin-bottom: 1.5rem;
+    margin-left: 4.5rem;
+}
+
+.modal-wrapper input[type=submit] {
+    margin-left: 1.5rem;
+    margin-right: 4rem;
+    width: 8rem;
+    font-size: 2rem;
+    align-self: center;
+    border:2px solid var(--modal-color);
+    border-radius: 0.5rem;
+    padding: 0.3rem;
+    font-size: 1rem;
+    color: var(--modal-color);
+    background-color: white;
+}
+
+.modal-wrapper input[type=submit]:hover {
+    opacity: 0.6;
+}

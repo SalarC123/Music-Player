@@ -1,0 +1,42 @@
+.open-library-wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.open-library {
+    margin: 2rem;
+    cursor: pointer;
+}
+
+.sidebar {
+    width: 20rem;
+    height: 100vh;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 15px 0 50px gray;
+    position: absolute;
+    top: 0;
+    left: -22rem;
+    transition: left 0.7s cubic-bezier(.2,.01,.48,1.71);
+    overflow-y: scroll;
+}
+
+.sidebar-move {
+    left: 0;
+}
+
+.add-new-song {
+    width: calc(100% - 2rem);
+    height: 4rem;
+    font-size: 2rem;
+    background-color:white;
+    border: 3px solid rgb(118, 118, 118);
+    margin: 1rem;
+    cursor: pointer;
+}
+
+.add-new-song:hover {
+    color: black;
+    opacity: 0.6;
+}
