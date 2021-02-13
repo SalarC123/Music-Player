@@ -1,20 +1,26 @@
 # Music Player
 
 ### Todo List
-***Buttons***
-**Open Song Library**
-**•Play/Pause**
-**•Next/Previous**
-**Favorite Song Button**
-**Song Info Button**
-**Add to Playlist button**
+***Buttons***  <br />
+**•Next/Previous**<br />
+**•Favorite Song Button**<br />
+**•Song Info Button**<br />
+**•Add to Playlist button**<br />
 
-***Pages***
-**Full Playlists Page**
-**Favorited Songs Page**'
-**Song Info Page**
+***Pages***<br />
+**•Full Playlists Page**<br />
+**•Favorited Songs Page**<br />
+**•Song Info Page**<br />
 
-***Features***
-**React Router**
-**Song Image**
-**Styled Components**
+***Features***<br />
+**•MOBILE RESPONSIVENESS**<br />
+**•React Router**<br />
+**•Styled Components**<br />
+**Spotify API and Spotify Component**<br />
+**•Unsplash API and Unsplash Component**<br />
+**•Change Favorited Icon**<br />
+**•Change Default Info (song, image, title, etc)**<br />
+
+***Bugs***<br />
+**Problem with long names in library**<br />
+**Favoriting is not linked to each song**<br />
