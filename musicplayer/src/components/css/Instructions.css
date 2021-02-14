@@ -1,0 +1,27 @@
+.article-wrapper {
+    margin-left: 2rem;
+}
+
+.article-wrapper article {
+    margin-bottom: 3rem;
+}
+
+hr {
+    color: black;
+    margin: 3rem 1rem;
+    height: 0.3rem;
+    background: black;
+}
+
+.article-wrapper h1 {
+    font-size: 3rem;
+}
+
+.how-to-add img {
+    margin: 1rem;
+}
+
+.article-wrapper mark {
+    background: linear-gradient(to right, gold, rgb(255, 255, 74));
+    padding: 0.2rem;
+}
