@@ -69,3 +69,18 @@ body {
     background-color: black;
     border-radius: 0;
 }
+
+@media (max-width:767px) {
+    .song-image {
+        width: 17rem;
+        height: 17rem;
+    }
+    .menu-items img {
+        width: 2rem;
+        height: 2rem;
+        margin: 0.7em;
+    }
+    .audio {
+        width: 1rem;
+    }
+}

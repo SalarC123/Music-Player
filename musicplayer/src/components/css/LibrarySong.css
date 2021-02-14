@@ -6,6 +6,8 @@
     justify-content: center;
     margin: 1rem;
     word-break: break-all;
+    position: relative;
+    overflow: hidden;
 }
 
 .library-song > h1 {
@@ -57,18 +59,24 @@
 } */
 
 .delete-from-library {
+    position: absolute;
+    top:0;
     font-size: 1.5rem;
-    background: red;
-    padding-bottom: 0.5rem;
-    padding-left: 0.5rem;
+    background: rgb(255, 62, 62);
+    border-bottom-left-radius: 50%;
+    border-top-left-radius: 50%;
+    border-bottom-right-radius: 50%;
+    transform: translate(50%,-50%);
     border:none;
     align-self: flex-end;
-    width: 2rem;
-    height: 2rem;
+    width: 2.5rem;
+    height: 2.5rem;
     color: white;
-    border-bottom-left-radius: 100%;
+    transition-property: height, width;
+    transition-duration: 0.9s;
 }
 
 .delete-from-library:hover {
-    opacity: 0.6;
+    height: 90rem;
+    width: 90rem;
 }

@@ -1,10 +1,12 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import LibrarySong from './LibrarySong'
 import './css/SongModal.css'
 import Unsplash from './Unsplash'
 import MusicAPI from './MusicAPI'
 
 function SongModal(props) {
+
+    const [ID, setID] = useState(0)
 
     const [unsplashVisibility, setUnsplashVisibility] = useState(false)
     const [spotifyVisibility, setSpotifyVisibility] = useState(false)
@@ -37,8 +39,10 @@ function SongModal(props) {
                 favorite={modalData.favorite} 
                 image={modalData.image} 
                 audio={modalData.audio}
-                key={modalData.name}/>
+                key={ID}/>
         ])
+
+        setID(ID + 1)
 
         // Reset the modal data
         setModalData({name:'',artist:'',favorite:'',image:'', audio:''})
@@ -63,7 +67,7 @@ function SongModal(props) {
             <label htmlFor="image">Audio File or <button onClick={(e) => chooseButton(e,'audioModal')} className='choose-button'>choose</button></label>
             <input type="text" id='audio' value={modalData.audio} onChange={handleModalDataChange}/>
 
-            <input onClick={sendInfo} type="submit" value="Add Song"/>
+            <input onClick={sendInfo} type="submit" value="Add"/>
 
             <Unsplash 
                 modalData={modalData} 

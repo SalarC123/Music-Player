@@ -79,3 +79,11 @@
 .choose-button:hover {
     filter: invert();
 }
+
+@media (max-width:767px) {
+    .modal-wrapper {
+        width: 20rem;
+        height: 34rem;
+        top:25rem;
+    }
+}

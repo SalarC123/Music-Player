@@ -7,11 +7,18 @@ function MusicAPI({ modalData, handleModalDataChange, spotifyVisibility, handleS
 
     const spotifyClientID = '671415d1853b45c1b339a9494cfe1ba2'
     const spotifyClientSecret = 'b3ed5ef9bb89487badf6ae54747712b5'
-    const [searchTerm, setSearchTerm] = useState('ocean')
+    const [searchTerm, setSearchTerm] = useState('study')
     const [spotifySongData, setSpotifySongData] = useState([]);
     const [searchInput, setSearchInput] = useState('')
     
-    // console.log(new URLSearchParams(searchTerm))
+    const submitOnEnter = (e) => {
+        if (e.keyCode == 13) {
+            e.preventDefault()
+            if (searchInput) {
+                setSearchTerm(searchInput)
+            }
+        }
+    }
 
     useEffect(() => {
         // Resets current list of songs
@@ -71,19 +78,21 @@ function MusicAPI({ modalData, handleModalDataChange, spotifyVisibility, handleS
         >
             <h1 className='close-extra-modal' onClick={() => handleSpotifyVisibility(false)}>X</h1>
             <h1 className='sample-title-text'>Sample Songs (Courtesy of Spotify)</h1>
-            <input 
-                value={searchInput} 
-                onChange={(e) => setSearchInput(e.target.value)} 
-                type="text" 
-                className="spotify-search"
-                onKeyDown={(e) => (e.keyCode == 13 ? e.preventDefault():'')}
-            />
-            <img 
-                src={search} 
-                alt="Search Icon" 
-                className='search-img' 
-                onClick={() => searchInput ? setSearchTerm(searchInput):''}
-            />
+            <div className='input-and-search'>
+                <input 
+                    value={searchInput} 
+                    onChange={(e) => setSearchInput(e.target.value)} 
+                    type="text" 
+                    className="spotify-search"
+                    onKeyDown={(e) => submitOnEnter(e)}
+                />
+                <img 
+                    src={search} 
+                    alt="Search Icon" 
+                    className='search-img' 
+                    onClick={(e) => searchInput ? setSearchTerm(searchInput):null}
+                />
+            </div>
 
             {/* EACH SONG IS ONLY DISPLAYED IF AUDIO PREVIEW FOR SONG IS NOT NULL */}
             {spotifySongData.map((elem) => (
