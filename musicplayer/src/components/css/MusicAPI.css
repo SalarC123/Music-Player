@@ -13,6 +13,12 @@
     display: none;
 }
 
+.input-and-search {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .search-img {
     width: 2rem;
     height: 2rem;
@@ -22,11 +28,12 @@
     border: 3px solid black;
     font-size: 1rem;
     margin:1rem;
+    padding: 0.4rem;
 }
 
 .close-extra-modal {
     color: red;
-    margin: 1rem;
+    margin: 0.3rem;
     cursor: pointer;
     position: absolute;
     right: 0.2rem;
@@ -37,4 +44,11 @@
     margin-top: 1rem;
     margin-left: 1rem;
     color: black;
+}
+
+@media (max-width:767px) {
+    .spotify-song {
+        width: 20rem;
+        transform: translate(50%,0);
+    }
 }

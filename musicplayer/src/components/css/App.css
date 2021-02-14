@@ -1,13 +1,18 @@
 .open-library-wrapper {
     width: 100%;
     display: flex;
-    flex-direction: row;
+    flex-direction: row !important;
     justify-content: flex-end;
+    align-items: center;
+    transition: top 0.5s linear;
+    z-index: 3;
+    background-color: white;
 }
 
-.open-library {
+.open-library-wrapper h2 {
     margin: 2rem;
     cursor: pointer;
+    color: black;
 }
 
 .sidebar {
@@ -39,4 +44,35 @@
 .add-new-song:hover {
     color: black;
     opacity: 0.6;
+}
+
+.hamburger {
+    display: none;
+    width: 2rem;
+    height: 2rem;
+    position: absolute;
+    right: 0;
+    top:0;
+    margin:1rem;
+    cursor: pointer;
+    z-index: 5;
+}
+
+.project-title {
+    margin: 2rem;
+    font-size:4rem;
+    position: absolute;
+}
+
+@media screen and (max-width:767px) {
+    .open-library-wrapper {
+        flex-direction: column !important;
+        align-items: flex-start;
+        position: absolute;
+        margin: 0;
+        left: 0;
+    }
+    .hamburger {
+        display: block;
+    }
 }
