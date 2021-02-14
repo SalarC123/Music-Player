@@ -1,0 +1,14 @@
+.unsplash-image-wrapper {
+    margin: 1rem;
+}
+
+.unsplash-image {
+    object-fit: cover;
+    height: 7.5rem;
+    width: 7.5rem;
+    cursor: pointer;
+}
+
+.unsplash-image:hover {
+    opacity: 0.6;
+}

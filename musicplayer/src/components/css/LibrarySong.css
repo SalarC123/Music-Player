@@ -35,8 +35,9 @@
 
 .switch-image {
     object-fit: cover;
-    width: 80%;
-    height: 80%;
+    width: 16rem;
+    height: 16rem;
+    margin-bottom: 0.3rem;
 }
 
 .library-heart {

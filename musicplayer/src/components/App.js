@@ -1,6 +1,5 @@
 import './css/App.css';
-import React, { useState, useEffect } from 'react'
-import LibrarySong from './LibrarySong'
+import React, { useState } from 'react'
 import DisplaySong from './DisplaySong'
 import { SongProvider } from './SongContext'
 import SongModal from './SongModal'
@@ -26,22 +25,20 @@ function App() {
 
   return (
     <SongProvider>
-      <>
-        <SongModal 
-            modalVisibility={modalVisibility} 
-            handleModalVisibility={handleModalVisibility} 
-            allSongs={allSongs}
-            handleAllSongs={handleAllSongs}
-        />
-        <div className="open-library-wrapper">
-          <h2 onClick={moveSidebar} className="open-library">Open Library</h2>
-        </div>
-        <DisplaySong/>
-        <div className={`sidebar ${sidebarPosition?'sidebar-move':''}`}>
-          <button onClick={() => handleModalVisibility('flex')} className="add-new-song">Add Song</button>
-          {allSongs.map((song) => (song))}
-        </div>
-      </>
+      <SongModal 
+          modalVisibility={modalVisibility} 
+          handleModalVisibility={handleModalVisibility} 
+          allSongs={allSongs}
+          handleAllSongs={handleAllSongs}
+      />
+      <div className="open-library-wrapper">
+        <h2 onClick={moveSidebar} className="open-library">Toggle Library</h2>
+      </div>
+      <DisplaySong/>
+      <div className={`sidebar ${sidebarPosition?'sidebar-move':''}`}>
+        <button onClick={() => handleModalVisibility('flex')} className="add-new-song">Add Song</button>
+        {allSongs.map((song) => (song))}
+      </div>
     </SongProvider>
   );
 }
