@@ -13,11 +13,11 @@ function LibrarySong(props) {
 
     const switchSong = () => {
         setSongInfo({
-            name: props.name, 
-            artist: props.artist, 
-            image: props.image, 
-            favorite: props.favorite,
-            audio: props.audio
+            name: name, 
+            artist: artist, 
+            image: image, 
+            favorite: favorite,
+            audio: audio
         })
     }
 
