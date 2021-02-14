@@ -22,7 +22,7 @@ function LibrarySong(props) {
             <p>{props.artist}</p>
             <div className='library-heart' style={{backgroundColor:props.favorite?'red':'white'}}></div>
             <img className='switch-image' src={props.image} alt=""/>
-            <button className='switch-button' onClick={switchSong}>SWITCH TO THIS SONG</button>
+            <button className='switch-button' onClick={switchSong}>CHOOSE</button>
         </div>
     )
 }

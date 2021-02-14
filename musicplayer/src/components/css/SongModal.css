@@ -20,7 +20,7 @@
     top: 0;
     font-size: 2rem;
     cursor: pointer;
-    color: var(--modal-color);
+    color: red;
 }
 
 .close-modal:hover {
@@ -63,4 +63,19 @@
 
 .modal-wrapper input[type=submit]:hover {
     opacity: 0.6;
+}
+
+.choose-button {
+    font-size: 1rem;
+    color: black;
+    font-weight: bolder;
+    border: 2px solid black;
+    background-color: white;
+    padding: 0.3rem;
+    margin: 0.2rem;
+    cursor: pointer;
+}
+
+.choose-button:hover {
+    filter: invert();
 }
