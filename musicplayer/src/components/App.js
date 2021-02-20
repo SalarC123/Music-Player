@@ -1,5 +1,5 @@
 import './css/App.css';
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import DisplaySong from './DisplaySong'
 import { SongProvider } from './SongContext'
 import SongModal from './SongModal'
@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
 import Contact from './Contact';
 import Instructions from './Instructions'
 import hamburger from '../Images/hamburger.png'
+import {AllSongsContext} from './AllSongsContext'
 
 function App() {
 
@@ -17,19 +18,16 @@ function App() {
     sidebarPosition ? setSidebarPosition('') : setSidebarPosition('sidebar-move')
   }
 
-  const [allSongs, setAllSongs] = useState([])
-  const handleAllSongs = (value) => {
-    setAllSongs(value)
-  }
+  const [allSongs, setAllSongs] = useContext(AllSongsContext)
 
-  const [modalVisibility, setModalVisibility] = useState('none')
+  const [modalVisibility, setModalVisibility] = useState(false)
   const handleModalVisibility = (display) => {
     setModalVisibility(display)
   }
 
   const dropdownStartPosition = '-600px'
   const [hamburgerVisibility, setHamburgerVisibility] = useState({flexDirection:'column', position:0, left:0, margin:0, top: dropdownStartPosition})
-  const handleHamburgerVisibility = (newState) => {
+  const handleHamburgerVisibility = () => {
     if (hamburgerVisibility.top == dropdownStartPosition) {
       setHamburgerVisibility({...hamburgerVisibility, top:'0'})
     } else {
@@ -37,14 +35,13 @@ function App() {
     }
   }
 
+
   return (
     <Router>
       <SongProvider>
         <SongModal 
             modalVisibility={modalVisibility} 
-            handleModalVisibility={handleModalVisibility} 
-            allSongs={allSongs}
-            handleAllSongs={handleAllSongs}
+            handleModalVisibility={handleModalVisibility}
         />
         {/* <h1 className='project-title'>Interactive Music Player</h1> */}
         <img onClick={() => handleHamburgerVisibility()} className='hamburger' src={hamburger} alt="Hamburger Menu"/>
@@ -67,7 +64,9 @@ function App() {
           <Route exact path='/'>
             <DisplaySong/>
             <div className={`sidebar ${sidebarPosition?'sidebar-move':''}`}>
-              <button onClick={() => handleModalVisibility('flex')} className="add-new-song">Add Song</button>
+              <button onClick={() => handleModalVisibility(true)} className="sidebar-buttons">Add Song</button>
+              <button className="sidebar-buttons">Select Playlist</button>
+              <button className="sidebar-buttons">Save This Playlist</button>
               {allSongs.map((song) => (song))}
             </div>
           </Route>

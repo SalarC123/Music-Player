@@ -1,23 +1,14 @@
 .modal-wrapper {
-    height: 30rem;
-    width: 27rem;
-    background-color: white;
-    box-shadow: 0 0 40px rgb(104, 104, 104);
-    position: fixed;
+    display: flex;
     flex-direction: column;
     justify-content: center;
-    top:50%;
-    left: 50%;
-    transform: translate(-50%,-70%);
-    z-index: 10;
-    display: none;
-    --modal-color:rgb(0, 0, 0);
 }
 
 .close-modal {
     position: absolute;
     right: 0.2rem;
     top: 0;
+    margin: 0.5rem;
     font-size: 2rem;
     cursor: pointer;
     color: red;
@@ -37,9 +28,10 @@
     margin-bottom: 1rem;
     margin-left: 1.5rem;
     margin-right: 1.5rem;
-    border: 2px solid var(--modal-color);
+    border: 2px solid black;
     font-size: 1.2rem;
     border-radius: 0.3rem;
+    border: 3px solid black;
     padding: 0.5rem;
 }
 .modal-wrapper input[type=checkbox] {
@@ -53,16 +45,19 @@
     width: 8rem;
     font-size: 2rem;
     align-self: center;
-    border:2px solid var(--modal-color);
+    border:2px solid black;
     border-radius: 0.5rem;
     padding: 0.3rem;
     font-size: 1rem;
-    color: var(--modal-color);
     background-color: white;
 }
 
 .modal-wrapper input[type=submit]:hover {
     opacity: 0.6;
+}
+
+.modal-wrapper input[type=submit]:active {
+    color: black;
 }
 
 .choose-button {

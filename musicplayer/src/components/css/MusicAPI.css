@@ -46,6 +46,14 @@
     color: black;
 }
 
+.preview-song {
+    width: 0.5rem;
+    background-color: black;
+    position: absolute;
+    right: 0;
+    transform: translate(-1.5rem,-3rem);
+}
+
 @media (max-width:767px) {
     .spotify-song {
         width: 20rem;

@@ -5,8 +5,8 @@ import Modal from 'react-modal'
 
 function MusicAPI({ modalData, handleModalDataChange, spotifyVisibility, handleSpotifyVisibility}) {
 
-    const spotifyClientID = '671415d1853b45c1b339a9494cfe1ba2'
-    const spotifyClientSecret = 'b3ed5ef9bb89487badf6ae54747712b5'
+    const spotifyClientID = process.env.REACT_APP_SPOTIFY_CLIENT_ID
+    const spotifyClientSecret = process.env.REACT_APP_SPOTIFY_CLIENT_SECRET
     const [searchTerm, setSearchTerm] = useState('study')
     const [spotifySongData, setSpotifySongData] = useState([]);
     const [searchInput, setSearchInput] = useState('')
@@ -62,7 +62,10 @@ function MusicAPI({ modalData, handleModalDataChange, spotifyVisibility, handleS
             className='spotify-modal'
             onRequestClose={() => handleSpotifyVisibility(false)}
             style={{
-                overlay: {zIndex: 100},
+                overlay: {
+                    zIndex: 100,
+                    backgroundColor:'rgba(0,0,0,0.6)',
+                },
                 content: {
                     width:'40rem', 
                     height:'45rem',
@@ -100,6 +103,7 @@ function MusicAPI({ modalData, handleModalDataChange, spotifyVisibility, handleS
                     <h3>{elem.name}</h3>
                     <h4>{elem.artist}</h4>
                     <p>Popularity: {elem.popularity ? elem.popularity + '/100': 'unknown'}</p>
+                    <audio className='preview-song' controls src={elem.audio}/>
                 </div>
             ))}
         </Modal>

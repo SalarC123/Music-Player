@@ -16,7 +16,10 @@ function Unsplash({ handleModalDataChange, modalData, unsplashVisibility, handle
         className='unsplash-modal'
         onRequestClose={() => handleUnsplashVisibility(false)}
         style={{
-          overlay: {zIndex: 100},
+          overlay: {
+            zIndex: 100,
+            backgroundColor:'rgba(0,0,0,0.6)'
+          },
           content: {
             width:'47rem', 
             transform:'translate(-50%,-50%)', 

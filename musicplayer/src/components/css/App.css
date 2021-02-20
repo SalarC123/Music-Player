@@ -1,3 +1,7 @@
+* {
+    font-family: sans-serif;
+}
+
 .open-library-wrapper {
     width: 100%;
     display: flex;
@@ -31,17 +35,17 @@
     left: 0;
 }
 
-.add-new-song {
+.sidebar-buttons {
     width: calc(100% - 2rem);
     height: 4rem;
     font-size: 2rem;
     background-color:white;
     border: 3px solid rgb(118, 118, 118);
-    margin: 1rem;
+    margin: 0.5rem 1rem;
     cursor: pointer;
 }
 
-.add-new-song:hover {
+.sidebar-buttons:hover {
     color: black;
     opacity: 0.6;
 }
