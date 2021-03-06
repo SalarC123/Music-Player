@@ -5,6 +5,7 @@ import random from '../Images/random.png'
 import add from '../Images/add.png'
 import { AllSongsContext } from './AllSongsContext';
 import isEqual from 'lodash.isequal';
+import LibrarySong from './LibrarySong'
 
 function DisplaySong() {
     const [allSongs, setAllSongs] = useContext(AllSongsContext)
@@ -46,6 +47,19 @@ function DisplaySong() {
         song ? setSongInfo(song.props): alert('Add songs to the library first')
     }
 
+    function addDisplaySongToLibrary() {
+        setAllSongs([...allSongs, 
+            <LibrarySong
+                name={songInfo.name}
+                artist={songInfo.artist}
+                favorite={songInfo.favorite}
+                image={songInfo.image}
+                audio={songInfo.audio}
+                />
+            ]
+        )
+    }
+
     return (
         <div className="display-song-wrapper">
             <h1 className='display-song-name'>{songInfo.name}</h1>
@@ -54,9 +68,9 @@ function DisplaySong() {
             <div className="menu-items">
                 <audio onPlay={switchPlayMode} onPause={switchPlayMode} className='audio' src={songInfo.audio} controls loop></audio>
                 <img src={random} alt="Random Song" onClick={() => playRandomSong(allSongs)}/>
-                <img src={add} alt="Add to Playlist"/>
+                <img src={add} onClick={() => addDisplaySongToLibrary()} alt="Add to Playlist"/>
                 <div onClick = {favoriteToggle} style={songInfo.favorite ? {backgroundColor:'red'}:{backgroundColor:'white'}} className='heart'></div>
-            </div>
+            </div>            
         </div>
     )
 }

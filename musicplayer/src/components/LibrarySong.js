@@ -12,12 +12,14 @@ function LibrarySong(props) {
     // allSongs.filter((elem) => console.log(elem, props.key))       //elem.key != props.key
 
     const switchSong = () => {
+        
+
         setSongInfo({
-            name: name, 
-            artist: artist, 
-            image: image, 
-            favorite: favorite,
-            audio: audio
+            name: props.name, 
+            artist: props.artist, 
+            image: props.image, 
+            favorite: props.favorite,
+            audio: props.audio
         })
     }
 

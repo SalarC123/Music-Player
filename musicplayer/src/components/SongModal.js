@@ -1,16 +1,14 @@
 import React, { useState, useContext } from 'react'
-import LibrarySong from './LibrarySong'
 import './css/SongModal.css'
 import Unsplash from './Unsplash'
 import MusicAPI from './MusicAPI'
 import { AllSongsContext } from './AllSongsContext'
 import Modal from 'react-modal'
+import LibrarySong from './LibrarySong'
 
 function SongModal(props) {
 
     const [allSongs, setAllSongs] = useContext(AllSongsContext)
-
-    const [ID, setID] = useState(0)
 
     const [unsplashVisibility, setUnsplashVisibility] = useState(false)
     const [spotifyVisibility, setSpotifyVisibility] = useState(false)
@@ -44,10 +42,10 @@ function SongModal(props) {
                 favorite={modalData.favorite} 
                 image={modalData.image} 
                 audio={modalData.audio}
-                key={ID}/>
+                />
+            // {...modalData, favorite:}
+            // modalData
         ])
-
-        setID(ID + 1)
 
         // Reset the modal data
         setModalData({name:'',artist:'',favorite:false,image:'', audio:''})
@@ -70,9 +68,10 @@ function SongModal(props) {
                     content:{
                         width: '30rem',
                         height:'32rem',
-                        top:'23%', 
-                        left:'30%', 
-                        position:'absolute', 
+                        position:'absolute',
+                        top:'50%',
+                        left:'50%',
+                        transform:'translate(-50%,-50%)'
                     }
                 }
             }
