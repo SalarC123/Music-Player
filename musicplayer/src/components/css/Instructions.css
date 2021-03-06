@@ -1,9 +1,15 @@
 .article-wrapper {
-    margin-left: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
 }
 
 .article-wrapper article {
     margin-bottom: 3rem;
+    width: 35rem;
+    box-shadow: 0 0 20px gray;
+    padding: 2rem;
 }
 
 hr {
@@ -19,9 +25,25 @@ hr {
 
 .how-to-add img {
     margin: 1rem;
+    /* border: 1px solid gray; */
+    /* box-shadow: 0 0 5px rgb(148, 148, 148); */
+    /* padding: 0.1rem; */
 }
 
 .article-wrapper mark {
-    background: linear-gradient(to right, gold, rgb(255, 255, 74));
-    padding: 0.2rem;
+    /* background: linear-gradient(to right, gold, rgb(255, 255, 74)); */
+    background-color: #b2ffdb;
+    color: #02764f;
+    font-weight: 800;
+    padding: 0.4rem;
+}
+
+article li {
+    list-style-type: none;
+}
+
+@media (max-width:767px) {
+    .article-wrapper article {
+        width: 20rem;
+    }
 }
