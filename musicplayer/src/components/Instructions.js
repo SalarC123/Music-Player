@@ -15,7 +15,7 @@ function Instructions() {
         <div className='article-wrapper'>
             <article className='how-to-add'>
                 <h1>How To Add A Song</h1>
-                <ol>
+                <div>
                     <li>Click on the <mark>Toggle Library</mark> button</li>
                     <img src={tl} />
                     <li>Click on the <mark>Add Song</mark> button</li>
@@ -26,19 +26,19 @@ function Instructions() {
                     <img src={choose} style={{width:'10rem', height: '5rem'}} />
                     <li>Click <mark>Add</mark> and view the library</li>
                     <img src={modalAdd} style={{width:'10rem', height: '3rem'}} />
-                </ol>
+                </div>
             </article>
 
             <hr/>
 
             <article className='how-to-delete'>
                 <h1>How To Delete A Song</h1>
-                <ol>
+                <div>
                     <li>Hover over the red square in the corner of each song card in the library</li>
                     <img src={deleteMouseHover} style={{width:'15rem', height: '24rem'}} />
                     <li>Click anywhere in the area where the red square expands</li>
                     <img src={mouseDelete} style={{width:'15rem', height: '20rem'}} />
-                </ol>
+                </div>
             </article>
         </div>
     )

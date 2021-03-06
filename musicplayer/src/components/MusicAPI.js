@@ -103,7 +103,7 @@ function MusicAPI({ modalData, handleModalDataChange, spotifyVisibility, handleS
                     <h3>{elem.name}</h3>
                     <h4>{elem.artist}</h4>
                     <p>Popularity: {elem.popularity ? elem.popularity + '/100': 'unknown'}</p>
-                    <audio className='preview-song' controls src={elem.audio}/>
+                    {/* <audio preload className='preview-song' controls src={elem.audio}/> */}
                 </div>
             ))}
         </Modal>
