@@ -2,23 +2,24 @@
 
 ### Todo List
 ***Buttons***  <br />
-**•Favorite Song Button**<br />
-**•Add to Playlist button**<br />
+**•Replace Favorite Song Button**<br />
+**•Replace Add to Playlist button**<br />
+**•Remove Individual Songs From Playlist**<br />
+
 
 ***Pages***<br />
-**•Full Playlists Page**<br />
-**•Favorited Songs Page**<br />
 **•Instructions Page UI**<br />
 **•Make Contact Page**<br />
 
 ***Features***<br />
 **•MOBILE RESPONSIVENESS FOR MODALS**<br />
+**•Playlist Modal CSS**<br />
+**•Playlist Branch Committ**<br />
 **•Styled Components**<br />
-**•Change Favorited Icon**<br />
-**•Change Default Info (song, image, title, etc)**<br />
+**•Click Confirmations (Unsplash and Spotify popups)**<br />
 **•LocalStorage**<br />
 **•Hosting**<br />
 
 ***Bugs***<br />
-**•Favoriting is not linked to each song**<br />
 **•Disc spinning on pause when library song is played**<br />
+**•Modal Visibility States Should Use useReducer + useContext**<br />
