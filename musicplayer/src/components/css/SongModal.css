@@ -74,6 +74,16 @@
     background-color: #a6fed5;
 }
 
+.success-check {
+    position: absolute;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    transition: opacity 1s ease;
+    background-attachment: fixed;
+}
+
 @media (max-width:767px) {
     .modal-wrapper {
         width: 20rem;

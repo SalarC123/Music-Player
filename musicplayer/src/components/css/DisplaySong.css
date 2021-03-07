@@ -17,10 +17,11 @@
 
 .display-song-name {
     margin: 0.75rem;
+    font-size: 2.8rem;
 }
 
 .display-song-artist {
-
+    font-size: 1.4rem;
 }
 
 .song-image {
