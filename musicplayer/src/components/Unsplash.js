@@ -1,8 +1,13 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useContext} from 'react'
 import './css/Unsplash.css'
 import Modal from 'react-modal'
+import checkmark from '../Images/checkmark.png'
+import { VisibilityContext } from './VisibilityContext'
 
-function Unsplash({ handleModalDataChange, modalData, unsplashVisibility, handleUnsplashVisibility }) {
+function Unsplash({ handleModalDataChange, modalData, checkOpacity }) {
+
+    const [visibility, dispatch] = useContext(VisibilityContext)  
+
     const [images, setImages] = useState([])
     useEffect(() => {
       fetch('https://api.unsplash.com/photos/random/?client_id=afLognfbE84vRrC-Lf6ygcqw9m6jf5-td6b5PiXUvyk&count=30')
@@ -12,9 +17,9 @@ function Unsplash({ handleModalDataChange, modalData, unsplashVisibility, handle
 
     return (
       <Modal 
-        isOpen={unsplashVisibility} 
+        isOpen={visibility.unsplashVisibility} 
         className='unsplash-modal'
-        onRequestClose={() => handleUnsplashVisibility(false)}
+        onRequestClose={() => dispatch({type:'hide', payload:'unsplashVisibility'})}
         style={{
           overlay: {
             zIndex: 100,
@@ -31,7 +36,7 @@ function Unsplash({ handleModalDataChange, modalData, unsplashVisibility, handle
           }
         }}>
 
-        <h1 className='close-extra-modal' onClick={() => handleUnsplashVisibility(false)}>X</h1>
+        <h1 className='close-extra-modal' onClick={() => dispatch({type:'hide', payload:'unsplashVisibility'})}>X</h1>
         <h1 className='sample-title-text'>Sample Images (Courtesy of Unsplash)</h1>
         <div className='unsplash-image-wrapper'>
           {images.map(
@@ -39,6 +44,8 @@ function Unsplash({ handleModalDataChange, modalData, unsplashVisibility, handle
             className='unsplash-image' 
             onClick={(e) => handleModalDataChange(e, {...modalData, image:image.urls.regular})}/>)}
         </div>
+
+        <img className="success-check" style={{opacity:checkOpacity}} src={checkmark} />
 
       </Modal>
     )

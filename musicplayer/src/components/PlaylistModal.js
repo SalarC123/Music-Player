@@ -2,15 +2,17 @@ import { useContext, useState } from 'react';
 import Modal from 'react-modal';
 import PlaylistChild from './PlaylistChild'
 import { PlaylistCollectionContext } from './PlaylistCollectionContext';
+import { VisibilityContext } from './VisibilityContext'
 
-function PlaylistModal({ playlistModalVisibility, setPlaylistModalVisibility }) {
+function PlaylistModal() {
 
     const [playlistCollection, setPlaylistCollection] = useContext(PlaylistCollectionContext)
+    const [visibility, dispatch] = useContext(VisibilityContext)
 
     return (
         <Modal 
-            isOpen={playlistModalVisibility} 
-            onRequestClose={() => setPlaylistModalVisibility(false)}
+            isOpen={visibility.playlistModalVisibility} 
+            onRequestClose={() => dispatch({type:'hide', payload:'playlistModalVisibility'})}
             style={
                 {
                     content: {
@@ -30,7 +32,7 @@ function PlaylistModal({ playlistModalVisibility, setPlaylistModalVisibility }) 
             }
         >
             <h1>Playlists</h1>
-            <div className="close-playlist-modal" onClick={() => setPlaylistModalVisibility(false)}>X</div>
+            <div className="close-playlist-modal" onClick={() => dispatch({type:'hide', payload:'playlistModalVisibility'})}>X</div>
             {playlistCollection.map((elem) => elem)}
         </Modal>
     )
