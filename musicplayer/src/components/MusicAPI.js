@@ -1,9 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import './css/MusicAPI.css'
 import search from '../Images/search.png'
 import Modal from 'react-modal'
+import checkmark from '../Images/checkmark.png'
+import { VisibilityContext } from './VisibilityContext'
 
-function MusicAPI({ modalData, handleModalDataChange, spotifyVisibility, handleSpotifyVisibility}) {
+function MusicAPI({ modalData, handleModalDataChange, checkOpacity}) {
 
     const spotifyClientID = process.env.REACT_APP_SPOTIFY_CLIENT_ID
     const spotifyClientSecret = process.env.REACT_APP_SPOTIFY_CLIENT_SECRET
@@ -11,6 +13,8 @@ function MusicAPI({ modalData, handleModalDataChange, spotifyVisibility, handleS
     const [spotifySongData, setSpotifySongData] = useState([]);
     const [searchInput, setSearchInput] = useState('')
     
+    const [visibility, dispatch] = useContext(VisibilityContext)
+
     const submitOnEnter = (e) => {
         if (e.keyCode == 13) {
             e.preventDefault()
@@ -58,9 +62,9 @@ function MusicAPI({ modalData, handleModalDataChange, spotifyVisibility, handleS
 
     return (
         <Modal 
-            isOpen={spotifyVisibility} 
+            isOpen={visibility.spotifyVisibility} 
             className='spotify-modal'
-            onRequestClose={() => handleSpotifyVisibility(false)}
+            onRequestClose={() => dispatch({type:'hide', payload:'spotifyVisibility'})}
             style={{
                 overlay: {
                     zIndex: 100,
@@ -79,7 +83,7 @@ function MusicAPI({ modalData, handleModalDataChange, spotifyVisibility, handleS
                 }
             }}
         >
-            <h1 className='close-extra-modal' onClick={() => handleSpotifyVisibility(false)}>X</h1>
+            <h1 className='close-extra-modal' onClick={() => dispatch({type:'hide', payload:'spotifyVisibility'})}>X</h1>
             <h1 className='sample-title-text'>Sample Songs (Courtesy of Spotify)</h1>
             <div className='input-and-search'>
                 <input 
@@ -106,6 +110,10 @@ function MusicAPI({ modalData, handleModalDataChange, spotifyVisibility, handleS
                     {/* <audio preload className='preview-song' controls src={elem.audio}/> */}
                 </div>
             ))}
+
+            <img className="success-check" style={{opacity:checkOpacity}} src={checkmark} />
+
+
         </Modal>
     )
 }

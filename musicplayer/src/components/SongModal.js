@@ -5,16 +5,17 @@ import MusicAPI from './MusicAPI'
 import { AllSongsContext } from './AllSongsContext'
 import Modal from 'react-modal'
 import LibrarySong from './LibrarySong'
+import { VisibilityContext } from './VisibilityContext'
 
-function SongModal(props) {
+function SongModal() {
 
     const [allSongs, setAllSongs] = useContext(AllSongsContext)
 
-    const [unsplashVisibility, setUnsplashVisibility] = useState(false)
-    const [spotifyVisibility, setSpotifyVisibility] = useState(false)
+    const [visibility, dispatch] = useContext(VisibilityContext)
 
     const [modalData, setModalData] = useState({name:'',artist:'',favorite:false,image:'', audio:''})
     
+    const [checkOpacity, setCheckOpacity] = useState(0)
 
     // TODO: Clean up this function
     const handleModalDataChange = (e, newState='') => {
@@ -23,6 +24,8 @@ function SongModal(props) {
             setModalData({...modalData, [e.target.id]: e.target.id=='favorite' ? e.target.checked: e.target.value})
         } else if (e.type == 'click') {
             setModalData(newState)
+            setCheckOpacity(1)
+            setTimeout(() => setCheckOpacity(0), 1200)
         }
     }
     
@@ -31,7 +34,7 @@ function SongModal(props) {
         event.preventDefault()
 
         // Render the modal invisible once form is submitted
-        props.handleModalVisibility(false)
+        dispatch({type:'hide', payload:'modalVisibility'})
 
         // Add new component with input data to library
         setAllSongs(
@@ -53,13 +56,13 @@ function SongModal(props) {
 
     const chooseButton = (e, type) => {
         e.preventDefault()
-        type == 'audioModal' ? setSpotifyVisibility(true) : setUnsplashVisibility(true)
+        type == 'audioModal' ? dispatch({type:'show', payload:'spotifyVisibility'}) : dispatch({type:'show', payload:'unsplashVisibility'})
     }
 
     return (
         <Modal 
-            isOpen={props.modalVisibility} 
-            onRequestClose={() => props.handleModalVisibility(false)}
+            isOpen={visibility.modalVisibility} 
+            onRequestClose={() => dispatch({type:'hide', payload:'modalVisibility'})}
             style={
                 {
                     overlay:{
@@ -77,7 +80,7 @@ function SongModal(props) {
             }
         >
             <form className="modal-wrapper">
-                <div onClick={() => (props.handleModalVisibility(false))} className="close-modal">X</div>
+                <div onClick={() => dispatch({type:'hide', payload:'modalVisibility'})} className="close-modal">X</div>
                 <label htmlFor="name">Title</label>
                 <input type="text" id='name' value={modalData.name} onChange={handleModalDataChange}/>
                 <label htmlFor="artist">Artist</label>
@@ -94,16 +97,15 @@ function SongModal(props) {
                 <Unsplash 
                     modalData={modalData} 
                     handleModalDataChange={handleModalDataChange}
-                    unsplashVisibility={unsplashVisibility}
-                    handleUnsplashVisibility={setUnsplashVisibility}
+                    checkOpacity={checkOpacity}
                     />
                 <MusicAPI 
                     modalData={modalData} 
                     handleModalDataChange={handleModalDataChange}
-                    spotifyVisibility={spotifyVisibility}
-                    handleSpotifyVisibility={setSpotifyVisibility}
+                    checkOpacity={checkOpacity}
                     />
             </form>
+
         </Modal>
     )
 }

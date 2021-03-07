@@ -9,10 +9,12 @@ import unsplash from '../Images/unsplash.png'
 import spotify from '../Images/spotify.png'
 import deleteMouseHover from '../Images/delete-mouse-hover.png'
 import mouseDelete from '../Images/mouse-delete.png'
+import downArrow from '../Images/downArrow.png'
 
 function Instructions() {
     return (
         <div className='article-wrapper'>
+            <h1 style={{fontSize:'4rem'}}>Tutorials</h1>
             <article className='how-to-add'>
                 <h1>How To Add A Song</h1>
                 <div>
@@ -29,7 +31,7 @@ function Instructions() {
                 </div>
             </article>
 
-            <hr/>
+            <img src={downArrow} style={{width:'5rem', height:'5rem'}}/>
 
             <article className='how-to-delete'>
                 <h1>How To Delete A Song</h1>

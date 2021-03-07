@@ -2,10 +2,6 @@
     font-family: sans-serif;
 }
 
-body {
-    background-color: #e5fff4;
-}
-
 .open-library-wrapper {
     width: 100%;
     display: flex;
@@ -14,7 +10,7 @@ body {
     align-items: center;
     transition: top 0.5s linear;
     z-index: 3;
-    background-color: #e2fff3;;
+    background: white;
 }
 
 .open-library-wrapper h2 {
