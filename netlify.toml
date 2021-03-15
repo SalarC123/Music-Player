@@ -1,3 +1,4 @@
 [build]
-  publish = "musicplayer/build/"
+  base = "musicplayer/"
+  publish = "build/"
   command = "npm run build"
