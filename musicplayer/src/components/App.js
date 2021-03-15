@@ -11,21 +11,19 @@ import PlaylistModal from './PlaylistModal';
 import PlaylistChild from './PlaylistChild';
 import { PlaylistCollectionContext } from './PlaylistCollectionContext';
 import { VisibilityContext } from './VisibilityContext'
+import LibrarySong from './LibrarySong';
 
 function App() {
 
   const [visibility, dispatch] = useContext(VisibilityContext)
-
   const [playlistCollection, setPlaylistCollection] = useContext(PlaylistCollectionContext)
-
   const [sidebarPosition, setSidebarPosition] = useState(false)
+  const [allSongs, setAllSongs] = useContext(AllSongsContext)
 
   // Positions the sidebar when the "open library" button is clicked
   const moveSidebar = () => {
       sidebarPosition ? setSidebarPosition('') : setSidebarPosition('sidebar-move')
   }
-
-  const [allSongs, setAllSongs] = useContext(AllSongsContext)
 
   const dropdownStartPosition = '-600px'
   const [hamburgerVisibility, setHamburgerVisibility] = useState({flexDirection:'column', position:0, left:0, margin:0, top: dropdownStartPosition})
@@ -58,7 +56,6 @@ function App() {
       <SongProvider>
         <PlaylistModal/>
         <SongModal/>
-        {/* <h1 className='project-title'>Interactive Music Player</h1> */}
         <img onClick={() => handleHamburgerVisibility()} className='hamburger' src={hamburger} alt="Hamburger Menu"/>
         <div className="open-library-wrapper" style={hamburgerVisibility}>
             <Link style={{textDecoration:'none'}} to='/'>
@@ -79,7 +76,7 @@ function App() {
                 <button onClick={() => dispatch({type:'show', payload:'modalVisibility'})} className="sidebar-buttons">Add Song</button>
                 <button className="sidebar-buttons" onClick={() => dispatch({type:'show', payload:'playlistModalVisibility'})}>Select Playlist</button>
                 <button onClick={() => savePlaylist(allSongs)} className="sidebar-buttons">Save Playlist</button>
-                {allSongs.map((song) => (song))}
+                {allSongs.map((song) => (<LibrarySong name={song.name} artist={song.artist} favorite={song.favorite} image={song.image} audio={song.audio} />))}
               </div>
           </Route>
 

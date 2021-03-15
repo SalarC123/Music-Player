@@ -11,6 +11,7 @@ function PlaylistModal() {
 
     return (
         <Modal 
+            ariaHideApp={false}
             isOpen={visibility.playlistModalVisibility} 
             onRequestClose={() => dispatch({type:'hide', payload:'playlistModalVisibility'})}
             style={
@@ -33,7 +34,7 @@ function PlaylistModal() {
         >
             <h1>Playlists</h1>
             <div className="close-playlist-modal" onClick={() => dispatch({type:'hide', payload:'playlistModalVisibility'})}>X</div>
-            {playlistCollection.map((elem) => elem)}
+            {playlistCollection.map((elem) => <PlaylistChild songsInPlaylist={elem.props.songsInPlaylist} name={elem.props.name}/>)}
         </Modal>
     )
 }

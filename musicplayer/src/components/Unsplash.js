@@ -17,6 +17,7 @@ function Unsplash({ handleModalDataChange, modalData, checkOpacity }) {
 
     return (
       <Modal 
+        ariaHideApp={false}
         isOpen={visibility.unsplashVisibility} 
         className='unsplash-modal'
         onRequestClose={() => dispatch({type:'hide', payload:'unsplashVisibility'})}

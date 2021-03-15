@@ -2,6 +2,7 @@ import './css/LibrarySong.css';
 import { useContext } from 'react';
 import { SongContext } from './SongContext';
 import { AllSongsContext } from './AllSongsContext';
+import isEqual from 'lodash.isequal'
 
 function LibrarySong(props) {
     // Assign unique props.key for each library song
@@ -12,7 +13,6 @@ function LibrarySong(props) {
     // allSongs.filter((elem) => console.log(elem, props.key))       //elem.key != props.key
 
     const switchSong = () => {
-        
 
         setSongInfo({
             name: props.name, 
@@ -25,7 +25,7 @@ function LibrarySong(props) {
 
     // Removes library songs
     function removeSong() {
-        setAllSongs(allSongs.filter((elem) => elem.props != props))
+        setAllSongs(allSongs.filter((elem) => !isEqual(elem, props)))
     }
     
     return (

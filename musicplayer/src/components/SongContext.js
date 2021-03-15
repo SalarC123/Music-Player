@@ -1,9 +1,10 @@
 import React, {createContext, useState} from 'react';
+import useLocalStorage from './useLocalStorage';
 
 export const SongContext = createContext()
 
 export const SongProvider = (props) => {
-    const [songInfo, setSongInfo] = useState({
+    const [songInfo, setSongInfo] = useLocalStorage('songInfo', {
         name:'The Imperial March', 
         artist:'Star Wars', 
         favorite:true, 

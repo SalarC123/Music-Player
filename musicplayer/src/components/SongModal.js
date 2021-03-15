@@ -4,7 +4,6 @@ import Unsplash from './Unsplash'
 import MusicAPI from './MusicAPI'
 import { AllSongsContext } from './AllSongsContext'
 import Modal from 'react-modal'
-import LibrarySong from './LibrarySong'
 import { VisibilityContext } from './VisibilityContext'
 
 function SongModal() {
@@ -17,13 +16,13 @@ function SongModal() {
     
     const [checkOpacity, setCheckOpacity] = useState(0)
 
-    // TODO: Clean up this function
     const handleModalDataChange = (e, newState='') => {
         if (e.type == 'change') {
             // Changes input state based on if input is text or a checkbox
             setModalData({...modalData, [e.target.id]: e.target.id=='favorite' ? e.target.checked: e.target.value})
         } else if (e.type == 'click') {
             setModalData(newState)
+            // renders confirmation check for 1.2 seconds
             setCheckOpacity(1)
             setTimeout(() => setCheckOpacity(0), 1200)
         }
@@ -36,18 +35,13 @@ function SongModal() {
         // Render the modal invisible once form is submitted
         dispatch({type:'hide', payload:'modalVisibility'})
 
+        // clone modalData object
+        const modalDataClone = {...modalData}
+
         // Add new component with input data to library
         setAllSongs(
             [...allSongs, 
-            <LibrarySong 
-                name={modalData.name} 
-                artist={modalData.artist} 
-                favorite={modalData.favorite} 
-                image={modalData.image} 
-                audio={modalData.audio}
-                />
-            // {...modalData, favorite:}
-            // modalData
+            modalDataClone
         ])
 
         // Reset the modal data
@@ -61,6 +55,7 @@ function SongModal() {
 
     return (
         <Modal 
+            ariaHideApp={false}
             isOpen={visibility.modalVisibility} 
             onRequestClose={() => dispatch({type:'hide', payload:'modalVisibility'})}
             style={
