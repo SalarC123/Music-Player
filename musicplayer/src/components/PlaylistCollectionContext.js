@@ -1,9 +1,10 @@
 import { useState, createContext } from 'react';
+import useLocalStorage from './useLocalStorage';
 
 export const PlaylistCollectionContext = createContext()
 
 export const PlaylistCollectionProvider = (props) => {
-    const [playlistCollection, setPlaylistCollection] = useState([])
+    const [playlistCollection, setPlaylistCollection] = useLocalStorage('playlistCollection', [])
 
     return (
         <PlaylistCollectionContext.Provider value={[playlistCollection, setPlaylistCollection]}>

@@ -65,6 +65,7 @@ function MusicAPI({ modalData, handleModalDataChange, checkOpacity}) {
             isOpen={visibility.spotifyVisibility} 
             className='spotify-modal'
             onRequestClose={() => dispatch({type:'hide', payload:'spotifyVisibility'})}
+            ariaHideApp={false}
             style={{
                 overlay: {
                     zIndex: 100,
