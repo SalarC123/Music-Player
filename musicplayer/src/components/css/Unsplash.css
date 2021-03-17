@@ -24,9 +24,10 @@
    }
    .sample-title-text {
        font-size: 1rem;
-       transform: translate(25%,0);
+       transform: translate(13.5rem,0);
    }
    .close-extra-modal {
-       left:70%
+       left:29rem;
+       transform: translateY(2rem);
    }
 }

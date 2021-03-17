@@ -3,6 +3,7 @@ import Modal from 'react-modal';
 import PlaylistChild from './PlaylistChild'
 import { PlaylistCollectionContext } from './PlaylistCollectionContext';
 import { VisibilityContext } from './VisibilityContext'
+import './css/PlaylistModal.css'
 
 function PlaylistModal() {
 
@@ -14,6 +15,7 @@ function PlaylistModal() {
             ariaHideApp={false}
             isOpen={visibility.playlistModalVisibility} 
             onRequestClose={() => dispatch({type:'hide', payload:'playlistModalVisibility'})}
+            className="playlist-modal"
             style={
                 {
                     content: {
@@ -32,7 +34,7 @@ function PlaylistModal() {
                 }
             }
         >
-            <h1>Playlists</h1>
+            <h1 className="playlist-title">Playlists</h1>
             <div className="close-playlist-modal" onClick={() => dispatch({type:'hide', payload:'playlistModalVisibility'})}>X</div>
             {playlistCollection.map((elem) => <PlaylistChild songsInPlaylist={elem.props.songsInPlaylist} name={elem.props.name}/>)}
         </Modal>
