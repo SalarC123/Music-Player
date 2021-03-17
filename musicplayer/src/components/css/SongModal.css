@@ -90,4 +90,9 @@
         height: 34rem;
         top:25rem;
     }
+    .song-modal {
+        width: 20rem !important;
+        height: 35rem !important;
+        background-color: white;
+    }
 }

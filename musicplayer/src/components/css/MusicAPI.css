@@ -59,4 +59,10 @@
         width: 20rem;
         transform: translate(50%,0);
     }
+    .spotify-modal {
+        transform: translate(-20rem, -17rem) !important;
+    }
+    .sample-title-text {
+        transform: translateX(10rem);
+    }
 }

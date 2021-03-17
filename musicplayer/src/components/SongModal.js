@@ -58,12 +58,15 @@ function SongModal() {
             ariaHideApp={false}
             isOpen={visibility.modalVisibility} 
             onRequestClose={() => dispatch({type:'hide', payload:'modalVisibility'})}
+            className='song-modal'
             style={
                 {
                     overlay:{
                         backgroundColor:'rgba(0,0,0,0.6)'
                     },
                     content:{
+                        paddingTop:'1.5rem',
+                        backgroundColor:'white',
                         width: '30rem',
                         height:'32rem',
                         position:'absolute',
