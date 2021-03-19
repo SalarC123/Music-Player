@@ -1,11 +1,11 @@
-import { useState, useEffect } from "react";
+import { useState, useLayoutEffect, useEffect } from "react";
 
 export default function useLocalStorage(key, value) {
     const [state, setState] = useState(value)
 
     const validSong = localStorage.getItem(key) ? Object.values(JSON.parse(localStorage.getItem(key))).some((item) => item) : false
 
-    useEffect(() => {
+    useLayoutEffect(() => {
         if (validSong) {
             const data = localStorage.getItem(key)
             setState(JSON.parse(data))
